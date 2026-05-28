@@ -600,14 +600,28 @@ export default function DigitalThorana() {
                         <circle cx="450" cy="245" r="62" />
                     </clipPath>
                     {imgs.center ? (
-                        <image
-                            href={imgs.center}
-                            x="388" y="183"
-                            width="124" height="124"
-                            clipPath="url(#clip-center)"
-                            preserveAspectRatio="xMidYMid slice"
-                            filter="url(#softGlow)"
-                        />
+                        <>
+                            <circle
+                                cx="450"
+                                cy="245"
+                                r="64"
+                                fill="none"
+                                stroke="#ffdf9c"
+                                strokeWidth="3"
+                                filter="url(#strongGlow)"
+                                opacity="0.7"
+                            />
+
+                            <image
+                                href={imgs.center}
+                                x="388"
+                                y="183"
+                                width="124"
+                                height="124"
+                                clipPath="url(#clip-center)"
+                                preserveAspectRatio="xMidYMid slice"
+                            />
+                        </>
                     ) : (
                         <text x="450" y="252" textAnchor="middle" fontSize="32" fill={currentGold} fontFamily="Georgia,serif">☸</text>
                     )}
