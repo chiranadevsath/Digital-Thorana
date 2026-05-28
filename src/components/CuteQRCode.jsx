@@ -5,8 +5,8 @@ const qrCode = new QRCodeStyling({
     width: 220,
     height: 220,
     type: 'svg',
-    data: 'https://yourdomain.com/track/thorana-main',
-    image: '/lotus.png',
+    data: 'https://thorana.digital/track/thorana-main',
+    image: '/lotus.jpg',
     dotsOptions: {
         color: '#e6b84e',
         type: 'rounded',
