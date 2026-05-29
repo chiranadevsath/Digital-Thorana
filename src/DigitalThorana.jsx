@@ -789,7 +789,7 @@ export default function DigitalThorana() {
               textTransform: "uppercase",
             }}
           >
-            Digital Thorana — ITL Sri Lanka - Accounts Department
+            Digital Thorana — ITL Sri Lanka - Finance Team
           </p>
         </div>
 

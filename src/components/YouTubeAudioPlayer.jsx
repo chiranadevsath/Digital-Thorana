@@ -25,7 +25,7 @@ const YouTubeAudioPlayer = ({ videoId, autoPlay = true, volume = 30 }) => {
         width: "0",
         videoId: videoId,
         playerVars: {
-          autoplay: 0, // Don't autoplay initially (let user interaction handle it)
+          autoplay: 0, // Don't autoplay initially
           controls: 0,
           disablekb: 1,
           fs: 0,
