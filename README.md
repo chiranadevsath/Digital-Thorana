@@ -1,16 +1,53 @@
-# React + Vite
+# Digital Thorana - 
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+An interactive digital thorana showcasing Jataka stories with dynamic color cycling, animated rings, particle effects, and immersive audio. Experience ancient Buddhist stories through a beautifully crafted web experience.
 
-Currently, two official plugins are available:
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Oxc](https://oxc.rs)
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/)
 
-## React Compiler
+## 🌟 Features
 
-The React Compiler is not enabled on this template because of its impact on dev & build performances. To add it, see [this documentation](https://react.dev/learn/react-compiler/installation).
+### Visual Effects
+- **Dynamic Color Cycling**: Rings and elements smoothly transition through gold, crimson, sapphire, emerald, and amber palettes
+- **Animated Rings**: Multiple rotating rings with pulsing effects and glow filters
+- **Particle System**: Floating particles with color transitions and floating animations
+- **Interactive Scenes**: 8 Jataka story circles with hover effects and clickable popups
+- **Oil Lamps**: Animated flame effects with color-cycling glows
+- **Lotus Petals**: Decorative SVG elements with animated strokes
+- **Rainbow Dots**: Rotating dotted rings with rainbow color transitions
 
-## Expanding the ESLint configuration
+### Interactive Features
+- **Clickable Stories**: Each scene circle opens a popup with detailed story content
+- **Hover Effects**: Glowing borders and visual feedback on interaction
+- **Persistent Audio**: Background music streaming from YouTube
+- **Volume Control**: Adjustable audio volume with mute/unmute
+- **Mobile Responsive**: Optimized for both desktop and mobile devices
 
-If you are developing a production application, we recommend using TypeScript with type-aware lint rules enabled. Check out the [TS template](https://github.com/vitejs/vite/tree/main/packages/create-vite/template-react-ts) for information on how to integrate TypeScript and [`typescript-eslint`](https://typescript-eslint.io) in your project.
+### Audio Features
+- **YouTube Integration**: Stream background music using YouTube Audio API
+- **Custom Audio Controls**: Play/Pause, volume slider, and mute functionality
+- **Mobile Optimized**: Special handling for mobile autoplay restrictions
+
+## 🚀 Live Demo
+
+[View Live Demo](#) *(Add your Vercel deployment URL here)*
+
+## 📦 Tech Stack
+
+- **React** - Frontend framework
+- **CSS3** - Styling and animations
+- **SVG** - Vector graphics and animations
+- **YouTube iFrame API** - Audio streaming
+- **Vercel** - Hosting and deployment
+
+## 🛠️ Installation
+
+### Prerequisites
+- Node.js (v14 or higher)
+- npm or yarn
+
+### Setup
+
+1. **Clone the repository**
+```bash
+git clone https://github.com/yourusername/digital-thorana.git
+cd digital-thorana

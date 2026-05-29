@@ -3,6 +3,7 @@ import CuteQRCode from "./components/CuteQRCode.jsx";
 import PopupModule, { usePopup } from "./components/Popups/PopupModule.jsx";
 
 import YouTubeAudioPlayer from "./components/YouTubeAudioPlayer.jsx";
+
 const YOUTUBE_VIDEO_ID = "SLyTF95xh7g";
 
 // Image configuration - Replace with your actual image URLs
@@ -788,7 +789,7 @@ export default function DigitalThorana() {
               textTransform: "uppercase",
             }}
           >
-            {/*Digital Thorana — ITL Sri Lanka - Accounts Department*/}
+            Digital Thorana — ITL Sri Lanka - Accounts Department
           </p>
         </div>
 
