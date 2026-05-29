@@ -1,0 +1,128 @@
+.youtube-audio-player {
+    position: fixed;
+    bottom: 20px;
+    right: 20px;
+    z-index: 1000;
+    background: linear-gradient(135deg, rgba(26, 20, 8, 0.95), rgba(13, 10, 4, 0.98));
+    backdrop-filter: blur(10px);
+    border-radius: 50px;
+    border: 1px solid #e6b84e;
+    padding: 8px 16px;
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.4), 0 0 15px rgba(230, 184, 78, 0.2);
+}
+
+.audio-controls {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+}
+
+.control-btn {
+    background: rgba(230, 184, 78, 0.15);
+    border: 1px solid #e6b84e;
+    color: #e6b84e;
+    font-size: 16px;
+    width: 36px;
+    height: 36px;
+    border-radius: 50%;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: all 0.2s ease;
+}
+
+.control-btn:hover:not(.disabled) {
+    background: #e6b84e;
+    color: #1a1206;
+    transform: scale(1.05);
+}
+
+.control-btn.disabled {
+    opacity: 0.4;
+    cursor: not-allowed;
+}
+
+.volume-slider {
+    width: 80px;
+    height: 4px;
+    -webkit-appearance: none;
+    background: #e6b84e40;
+    border-radius: 2px;
+    outline: none;
+    cursor: pointer;
+}
+
+.volume-slider::-webkit-slider-thumb {
+    -webkit-appearance: none;
+    width: 12px;
+    height: 12px;
+    border-radius: 50%;
+    background: #e6b84e;
+    cursor: pointer;
+}
+
+.audio-status {
+    font-size: 11px;
+    font-family: monospace;
+    padding-left: 10px;
+    border-left: 1px solid #e6b84e40;
+}
+
+.status-loading {
+    color: #d4882a;
+    animation: pulse 1s infinite;
+}
+
+.status-playing {
+    color: #4aaa6a;
+}
+
+.status-playing::before {
+    content: "♫ ";
+    animation: pulse 1s ease infinite;
+}
+
+.status-paused {
+    color: #e6b84e;
+    opacity: 0.7;
+}
+
+.mobile-play-overlay {
+    position: fixed;
+    bottom: 100px;
+    right: 20px;
+    background: #e6b84e;
+    color: #1a1206;
+    padding: 8px 16px;
+    border-radius: 30px;
+    font-size: 12px;
+    font-weight: bold;
+    cursor: pointer;
+    animation: bounce 0.5s ease;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.3);
+    z-index: 1001;
+}
+
+@keyframes pulse {
+    0%, 100% { opacity: 0.6; }
+    50% { opacity: 1; }
+}
+
+@keyframes bounce {
+    0% { transform: scale(0.9); opacity: 0; }
+    80% { transform: scale(1.05); }
+    100% { transform: scale(1); opacity: 1; }
+}
+
+@media (max-width: 600px) {
+    .youtube-audio-player {
+        bottom: 10px;
+        right: 10px;
+        padding: 6px 12px;
+    }
+
+    .volume-slider {
+        width: 60px;
+    }
+}
