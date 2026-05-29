@@ -1219,6 +1219,47 @@ export default function DigitalThorana() {
           ))}
 
           {/* ===== CENTRAL BUDDHA FIGURE WITH COLOR CYCLING RINGS ===== */}
+          <g opacity="0.5">
+            {[...Array(24)].map((_, i) => {
+              const angle = (i * 15 * Math.PI) / 180;
+              const x = 450 + 115 * Math.cos(angle);
+              const y = 245 + 115 * Math.sin(angle);
+
+              return (
+                <polygon
+                  key={i}
+                  points={`${x},${y - 4} ${x - 3},${y + 4} ${x + 3},${y + 4}`}
+                  fill={currentGold}
+                >
+                  <animate
+                    attributeName="opacity"
+                    values="0.3;1;0.3"
+                    dur="2s"
+                    begin={`${i * 0.1}s`}
+                    repeatCount="indefinite"
+                  />
+                </polygon>
+              );
+            })}
+          </g>
+          <circle
+            cx="450"
+            cy="245"
+            r="120"
+            fill="none"
+            stroke={currentGold}
+            strokeWidth="12"
+            opacity="0.08"
+            filter="url(#strongGlow)"
+          >
+            {" "}
+            <animate
+              attributeName="r"
+              values="115;125;115"
+              dur="5s"
+              repeatCount="indefinite"
+            />{" "}
+          </circle>
           <g>
             {/* Rotating divine rings with color cycle */}
             <circle

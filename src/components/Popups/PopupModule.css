@@ -1,60 +1,21 @@
+@import url('https://fonts.googleapis.com/css2?family=Noto+Sans+Sinhala:wght@400;500;600;700&display=swap');
+
+/* =========================
+   OVERLAY
+========================= */
 .popup-overlay {
   position: fixed;
-  top: 0;
-  left: 0;
-  right: 0;
-  bottom: 0;
+  inset: 0;
   background-color: rgba(0, 0, 0, 0.85);
   backdrop-filter: blur(8px);
   display: flex;
   align-items: center;
   justify-content: center;
   z-index: 9999;
-  transition: opacity 0.3s ease;
+
+  transition: opacity 0.3s ease, visibility 0.3s ease;
 }
 
-.popup-content {
-  white-space: pre-line;
-}
-
-.popup-body.split-layout {
-  display: flex;
-  gap: 20px;
-  align-items: stretch;
-}
-
-/* IMAGE SIDE */
-.popup-image {
-  flex: 1;
-  max-width: 45%;
-}
-
-.popup-image img {
-  width: 100%;
-  height: 100%;
-  object-fit: cover;
-  border-radius: 12px;
-}
-
-/* TEXT SIDE */
-.popup-content {
-  flex: 1;
-  white-space: pre-line; /* keeps your Sinhala line breaks */
-  overflow-y: auto;
-  max-height: 60vh;
-  padding-right: 10px;
-}
-
-/* MOBILE RESPONSIVE */
-@media (max-width: 768px) {
-  .popup-body.split-layout {
-    flex-direction: column;
-  }
-
-  .popup-image {
-    max-width: 100%;
-  }
-}
 .popup-overlay.show {
   opacity: 1;
   visibility: visible;
@@ -65,23 +26,25 @@
   visibility: hidden;
 }
 
+/* =========================
+   CONTAINER
+========================= */
 .popup-container {
   background: linear-gradient(135deg, #1a1408, #0d0a04);
   border-radius: 24px;
-  max-width: 500px;
-  width: 90%;
-  min-height: 300px;
-  max-height: 80vh;
+  width: min(95vw, 900px);
+  max-height: 90vh;
+
   border: 2px solid #e6b84e;
   box-shadow:
-    0 20px 60px rgba(0, 0, 0, 0.9),
-    0 0 30px rgba(230, 184, 78, 0.3);
-  transition:
-    transform 0.3s ease,
-    opacity 0.3s ease;
-  overflow: hidden;
+          0 20px 60px rgba(0, 0, 0, 0.9),
+          0 0 30px rgba(230, 184, 78, 0.3);
+
   display: flex;
   flex-direction: column;
+  overflow: hidden;
+
+  transition: transform 0.3s ease, opacity 0.3s ease;
 }
 
 .popup-container.show {
@@ -94,19 +57,23 @@
   opacity: 0;
 }
 
+/* =========================
+   HEADER
+========================= */
 .popup-header {
-  padding: 20px 24px;
-  border-bottom: 1px solid #e6b84e40;
+  padding: 18px 22px;
+  border-bottom: 1px solid rgba(230, 184, 78, 0.25);
   display: flex;
   justify-content: space-between;
   align-items: center;
-  background: rgba(230, 184, 78, 0.1);
+
+  background: rgba(230, 184, 78, 0.08);
 }
 
 .popup-title {
   margin: 0;
-  font-size: 20px;
-  font-weight: bold;
+  font-size: 18px;
+  font-weight: 700;
   color: #e6b84e;
   font-family: "Georgia", serif;
   letter-spacing: 1px;
@@ -116,66 +83,105 @@
   background: none;
   border: none;
   color: #e6b84e;
-  font-size: 24px;
+  font-size: 22px;
   cursor: pointer;
-  padding: 0;
+
   width: 32px;
   height: 32px;
+  border-radius: 50%;
+
   display: flex;
   align-items: center;
   justify-content: center;
-  border-radius: 50%;
+
   transition: all 0.2s ease;
 }
 
 .popup-close:hover {
-  background: rgba(230, 184, 78, 0.2);
+  background: rgba(230, 184, 78, 0.15);
   transform: scale(1.1);
 }
 
+/* =========================
+   BODY (SCROLL ONLY HERE)
+========================= */
 .popup-body {
-  padding: 24px;
+  padding: 22px;
   flex: 1;
   overflow-y: auto;
-  max-height: 60vh;
 }
 
+/* split layout (image + text) */
+.popup-body.split-layout {
+  display: flex;
+  gap: 20px;
+  align-items: stretch;
+}
+
+/* =========================
+   IMAGE
+========================= */
+.popup-image {
+  flex: 1;
+  max-width: 45%;
+}
+
+.popup-image img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  border-radius: 12px;
+}
+
+/* =========================
+   TEXT (IMPORTANT FIX)
+========================= */
 .popup-content {
+  flex: 1;
+
   color: #ffdf9c;
-  font-family: "Georgia", serif;
-  line-height: 1.6;
+  font-family: "Noto Sans Sinhala", sans-serif;
   font-size: 14px;
+  line-height: 1.8;
+
   text-align: justify;
+
+  white-space: pre-line;
+  word-break: break-word;
+  overflow-wrap: break-word;
+
+  padding-right: 8px;
 }
 
+/* =========================
+   FOOTER
+========================= */
 .popup-footer {
-  padding: 16px 24px;
-  border-top: 1px solid #e6b84e40;
+  padding: 14px 22px;
+  border-top: 1px solid rgba(230, 184, 78, 0.25);
   display: flex;
   justify-content: flex-end;
-  gap: 12px;
-  background: rgba(0, 0, 0, 0.3);
+  gap: 10px;
+
+  background: rgba(0, 0, 0, 0.25);
 }
 
 .popup-btn {
-  padding: 8px 20px;
+  padding: 8px 18px;
   border-radius: 8px;
   font-size: 14px;
-  font-weight: bold;
+  font-weight: 600;
+
   cursor: pointer;
-  transition: all 0.2s ease;
   border: none;
+
   font-family: "Georgia", serif;
+  transition: all 0.2s ease;
 }
 
 .popup-btn-confirm {
   background: linear-gradient(135deg, #e6b84e, #b87a1a);
   color: #1a1408;
-}
-
-.popup-btn-confirm:hover {
-  transform: translateY(-1px);
-  box-shadow: 0 4px 12px rgba(230, 184, 78, 0.4);
 }
 
 .popup-btn-cancel {
@@ -184,28 +190,16 @@
   color: #e6b84e;
 }
 
-.popup-btn-cancel:hover {
-  background: rgba(230, 184, 78, 0.1);
-}
-
 .popup-btn-close {
   background: linear-gradient(135deg, #8b2a1a, #5a1a10);
   color: #ffdf9c;
 }
 
-.popup-btn-close:hover {
-  transform: translateY(-1px);
-  box-shadow: 0 4px 12px rgba(139, 42, 26, 0.4);
-}
-
-/* Scrollbar styling */
+/* =========================
+   SCROLLBAR
+========================= */
 .popup-body::-webkit-scrollbar {
   width: 6px;
-}
-
-.popup-body::-webkit-scrollbar-track {
-  background: rgba(230, 184, 78, 0.1);
-  border-radius: 3px;
 }
 
 .popup-body::-webkit-scrollbar-thumb {
@@ -213,15 +207,20 @@
   border-radius: 3px;
 }
 
-/* Responsive */
-@media (max-width: 600px) {
-  .popup-container {
-    width: 95%;
-    max-height: 90vh;
+/* =========================
+   MOBILE FIX
+========================= */
+@media (max-width: 768px) {
+  .popup-body.split-layout {
+    flex-direction: column;
+  }
+
+  .popup-image {
+    max-width: 100%;
   }
 
   .popup-title {
-    font-size: 18px;
+    font-size: 16px;
   }
 
   .popup-content {
