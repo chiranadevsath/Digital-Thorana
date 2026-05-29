@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from "react";
 import CuteQRCode from "./components/CuteQRCode.jsx";
 import PopupModule, { usePopup } from "./components/Popups/PopupModule.jsx";
+import AudioStreamer from "./components/AudioStreamer.jsx";
 
 // ============================================================
 //  DIGITAL THORANA - JATAKA STORIES WITH ROTATING COLORS
@@ -638,6 +639,9 @@ export default function DigitalThorana() {
   const [imgs] = useState(IMAGES);
   const [colorIndex, setColorIndex] = useState(0);
   const { popupProps, showPopup } = usePopup();
+
+  const youtubeAudioUrl =
+    "https://www.youtube.com/watch?v=SLyTF95xh7g&list=RDSLyTF95xh7g&start_radio=1";
 
   // Sample content for each scene - you can replace with your own text
   const sceneContents = {
@@ -1604,6 +1608,15 @@ export default function DigitalThorana() {
         ></div>
         {/*<CuteQRCode />*/}
       </div>
+      <AudioStreamer
+        videoUrl={youtubeAudioUrl}
+        autoPlay={true}
+        initialVolume={30}
+        showControls={true}
+        onPlay={() => console.log("Audio started")}
+        onPause={() => console.log("Audio paused")}
+        onEnd={() => console.log("Audio ended")}
+      />
       <PopupModule {...popupProps} />
     </>
   );

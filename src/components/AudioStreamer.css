@@ -1,0 +1,246 @@
+/* components/AudioStreamer.css */
+.audio-streamer {
+    position: fixed;
+    bottom: 20px;
+    right: 20px;
+    z-index: 1000;
+    background: linear-gradient(135deg, rgba(26, 20, 8, 0.95), rgba(13, 10, 4, 0.98));
+    backdrop-filter: blur(10px);
+    border-radius: 50px;
+    border: 1px solid #e6b84e;
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.4), 0 0 15px rgba(230, 184, 78, 0.2);
+    transition: all 0.3s ease;
+    overflow: hidden;
+}
+
+.audio-streamer:hover {
+    border-color: #ffdf9c;
+    box-shadow: 0 4px 25px rgba(230, 184, 78, 0.3);
+}
+
+.audio-streamer-content {
+    padding: 8px 16px;
+}
+
+/* Toggle button */
+.streamer-toggle {
+    position: absolute;
+    top: -12px;
+    right: 20px;
+    background: #e6b84e;
+    border: none;
+    color: #1a1206;
+    font-size: 10px;
+    width: 24px;
+    height: 24px;
+    border-radius: 12px;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: all 0.2s ease;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.3);
+}
+
+.streamer-toggle:hover {
+    background: #ffdf9c;
+    transform: scale(1.05);
+}
+
+/* Controls layout */
+.streamer-controls {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+}
+
+.control-btn {
+    background: rgba(230, 184, 78, 0.15);
+    border: 1px solid #e6b84e;
+    color: #e6b84e;
+    font-size: 16px;
+    width: 36px;
+    height: 36px;
+    border-radius: 50%;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: all 0.2s ease;
+}
+
+.control-btn:hover:not(:disabled) {
+    background: #e6b84e;
+    color: #1a1206;
+    transform: scale(1.05);
+    box-shadow: 0 0 10px rgba(230, 184, 78, 0.5);
+}
+
+.control-btn:disabled {
+    opacity: 0.4;
+    cursor: not-allowed;
+}
+
+/* Time display */
+.time-display {
+    font-family: monospace;
+    font-size: 13px;
+    color: #ffdf9c;
+    background: rgba(0, 0, 0, 0.5);
+    padding: 4px 10px;
+    border-radius: 20px;
+    letter-spacing: 0.5px;
+}
+
+.current-time {
+    color: #e6b84e;
+    font-weight: bold;
+}
+
+.time-separator {
+    margin: 0 4px;
+    opacity: 0.6;
+}
+
+.duration {
+    opacity: 0.7;
+}
+
+/* Volume control */
+.volume-control {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+}
+
+.volume-icon {
+    font-size: 14px;
+    color: #e6b84e;
+}
+
+.volume-slider {
+    width: 70px;
+    height: 4px;
+    -webkit-appearance: none;
+    background: #e6b84e40;
+    border-radius: 2px;
+    outline: none;
+    cursor: pointer;
+}
+
+.volume-slider::-webkit-slider-thumb {
+    -webkit-appearance: none;
+    width: 12px;
+    height: 12px;
+    border-radius: 50%;
+    background: #e6b84e;
+    cursor: pointer;
+    transition: all 0.2s ease;
+}
+
+.volume-slider::-webkit-slider-thumb:hover {
+    transform: scale(1.2);
+    background: #ffdf9c;
+}
+
+.volume-slider:disabled {
+    opacity: 0.4;
+    cursor: not-allowed;
+}
+
+/* Status indicators */
+.streamer-status {
+    margin-top: 6px;
+    text-align: center;
+    font-size: 9px;
+    font-family: monospace;
+    letter-spacing: 0.5px;
+}
+
+.status-loading {
+    color: #d4882a;
+    animation: pulse 1.5s ease infinite;
+}
+
+.status-playing {
+    color: #4aaa6a;
+}
+
+.status-playing::before {
+    content: "♫ ";
+    animation: pulse 1s ease infinite;
+}
+
+.status-error {
+    color: #c43a2a;
+}
+
+.status-ready {
+    color: #e6b84e;
+    opacity: 0.7;
+}
+
+@keyframes pulse {
+    0%, 100% { opacity: 0.6; }
+    50% { opacity: 1; }
+}
+
+/* Expanded mode */
+.audio-streamer.expanded {
+    border-radius: 20px;
+    min-width: 280px;
+}
+
+.audio-streamer.expanded .streamer-controls {
+    flex-wrap: wrap;
+    justify-content: center;
+}
+
+/* Error toast */
+.audio-error-toast {
+    position: fixed;
+    bottom: 90px;
+    right: 20px;
+    background: #8b2a1a;
+    color: #ffdf9c;
+    padding: 6px 12px;
+    border-radius: 8px;
+    font-size: 11px;
+    font-family: monospace;
+    z-index: 1000;
+    animation: fadeInOut 3s ease forwards;
+}
+
+@keyframes fadeInOut {
+    0% { opacity: 0; transform: translateY(10px); }
+    15% { opacity: 1; transform: translateY(0); }
+    85% { opacity: 1; transform: translateY(0); }
+    100% { opacity: 0; transform: translateY(-10px); }
+}
+
+/* Responsive */
+@media (max-width: 600px) {
+    .audio-streamer {
+        bottom: 10px;
+        right: 10px;
+    }
+
+    .streamer-controls {
+        gap: 8px;
+    }
+
+    .control-btn {
+        width: 32px;
+        height: 32px;
+        font-size: 14px;
+    }
+
+    .time-display {
+        font-size: 11px;
+        padding: 3px 8px;
+    }
+
+    .volume-slider {
+        width: 50px;
+    }
+}
