@@ -789,7 +789,7 @@ export default function DigitalThorana() {
               textTransform: "uppercase",
             }}
           >
-            Digital Thorana — CSTH - WD 21/22
+            Digital Thorana — ITL Sri Lanka - Finance Team
           </p>
         </div>
 
